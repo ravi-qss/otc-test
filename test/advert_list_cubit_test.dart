@@ -14,24 +14,24 @@ class MockAdvertListCubit extends MockCubit<AdvertListState>
 
 void main() {
 
-  late MockConnectionCubit mockConnectionCubit;
-  late MockAdvertListCubit mockAdvertListCubit;
-
-  setUpAll(() => APIInitializer().initialize(isMock: true));
-  setUp(() {
-    mockConnectionCubit = MockConnectionCubit();
-    mockAdvertListCubit = MockAdvertListCubit();
-  });
-
-
-  group('Test Advert List functions', () {
-    test('description', () {
-      expect(mockAdvertListCubit.getTotalPageLimit(), 5);
-    });
-  });
-
-  tearDown(() {
-    mockConnectionCubit.close();
-    mockAdvertListCubit.close();
-  });
+  // late MockConnectionCubit mockConnectionCubit;
+  // late MockAdvertListCubit mockAdvertListCubit;
+  //
+  // setUpAll(() => APIInitializer().initialize(isMock: true));
+  // setUp(() {
+  //   mockConnectionCubit = MockConnectionCubit();
+  //   mockAdvertListCubit = MockAdvertListCubit();
+  // });
+  //
+  //
+  // group('Test Advert List functions', () {
+  //   test('description', () {
+  //     expect(mockAdvertListCubit.getTotalPageLimit(), 5);
+  //   });
+  // });
+  //
+  // tearDown(() {
+  //   mockConnectionCubit.close();
+  //   mockAdvertListCubit.close();
+  // });
 }

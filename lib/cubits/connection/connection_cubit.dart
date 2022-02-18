@@ -2,13 +2,11 @@ import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:otc_test/cubits/connection/connection_state.dart';
+import 'package:flutter_deriv_api/basic_api/generated/ping_receive.dart';
+import 'package:flutter_deriv_api/basic_api/generated/ping_send.dart';
 import 'package:flutter_deriv_api/services/connection/api_manager/binary_api.dart';
 import 'package:flutter_deriv_api/services/connection/api_manager/connection_information.dart';
-import 'package:flutter_deriv_api/basic_api/generated/ping_send.dart';
-import 'package:flutter_deriv_api/basic_api/response.dart';
-import 'package:flutter_deriv_api/api/common/ping/ping.dart';
-import 'package:flutter_deriv_api/basic_api/generated/ping_receive.dart';
+import 'package:otc_test/cubits/connection/connection_state.dart';
 
 class ConnectionCubit extends Cubit<ConnectionsState> {
   ConnectionCubit() : super(InitialConnectionState()) {

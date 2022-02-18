@@ -102,8 +102,9 @@ class _DashboardPageState extends State<DashboardPage> {
     return PopupMenuButton(
         key: _menuKey,
         itemBuilder: (_) => const <PopupMenuItem<String>>[
-              PopupMenuItem<String>(child: Text('Completion'), value: 'completion'),
-          PopupMenuItem<String>(child: Text('Rate'), value: 'rate'),
+              PopupMenuItem<String>(
+                  child: Text('Completion'), value: 'completion'),
+              PopupMenuItem<String>(child: Text('Rate'), value: 'rate'),
             ],
         onSelected: (String value) {
           BlocProvider.of<AdvertListCubit>(context).sortAdvertListBy(value);

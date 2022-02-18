@@ -3,23 +3,27 @@ class AuthorizeResponse {
   EchoReq? echoReq;
   String? msgType;
 
-  AuthorizeResponse({this.authorize, this.echoReq, this.msgType});
+  AuthorizeResponse({this.authorize,echoReq,msgType});
 
   AuthorizeResponse.fromJson(Map<String, dynamic> json) {
-    authorize = json['authorize'] != null ? new Authorize.fromJson(json['authorize']) : null;
-    echoReq = json['echo_req'] != null ? new EchoReq.fromJson(json['echo_req']) : null;
+    authorize = json['authorize'] != null
+        ? Authorize.fromJson(json['authorize'])
+        : null;
+    echoReq = json['echo_req'] != null
+        ? EchoReq.fromJson(json['echo_req'])
+        : null;
     msgType = json['msg_type'];
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.authorize != null) {
-      data['authorize'] = this.authorize!.toJson();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    if (authorize != null) {
+      data['authorize'] = authorize!.toJson();
     }
-    if (this.echoReq != null) {
-      data['echo_req'] = this.echoReq!.toJson();
+    if (echoReq != null) {
+      data['echo_req'] = echoReq!.toJson();
     }
-    data['msg_type'] = this.msgType;
+    data['msg_type'] = msgType;
     return data;
   }
 }
@@ -42,12 +46,30 @@ class Authorize {
   List<String>? upgradeableLandingCompanies;
   int? userId;
 
-  Authorize({this.accountList, this.balance, this.country, this.currency, this.email, this.fullname, this.isVirtual, this.landingCompanyFullname, this.landingCompanyName, this.localCurrencies, this.loginid, this.preferredLanguage, this.scopes, this.trading, this.upgradeableLandingCompanies, this.userId});
+  Authorize(
+      {this.accountList,
+     balance,
+     country,
+     currency,
+     email,
+     fullname,
+     isVirtual,
+     landingCompanyFullname,
+     landingCompanyName,
+     localCurrencies,
+     loginid,
+     preferredLanguage,
+     scopes,
+     trading,
+     upgradeableLandingCompanies,
+     userId});
 
   Authorize.fromJson(Map<String, dynamic> json) {
     if (json['account_list'] != null) {
       accountList = <AccountList>[];
-      json['account_list'].forEach((v) { accountList!.add(new AccountList.fromJson(v)); });
+      json['account_list'].forEach((v) {
+        accountList!.add(AccountList.fromJson(v));
+      });
     }
     balance = json['balance'];
     country = json['country'];
@@ -57,39 +79,43 @@ class Authorize {
     isVirtual = json['is_virtual'];
     landingCompanyFullname = json['landing_company_fullname'];
     landingCompanyName = json['landing_company_name'];
-    localCurrencies = json['local_currencies'] != null ? new LocalCurrencies.fromJson(json['local_currencies']) : null;
+    localCurrencies = json['local_currencies'] != null
+        ? LocalCurrencies.fromJson(json['local_currencies'])
+        : null;
     loginid = json['loginid'];
     preferredLanguage = json['preferred_language'];
     scopes = json['scopes'].cast<String>();
-    trading = json['trading'] != null ? new Trading.fromJson(json['trading']) : null;
-    upgradeableLandingCompanies = json['upgradeable_landing_companies'].cast<String>();
+    trading =
+        json['trading'] != null ? Trading.fromJson(json['trading']) : null;
+    upgradeableLandingCompanies =
+        json['upgradeable_landing_companies'].cast<String>();
     userId = json['user_id'];
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.accountList != null) {
-      data['account_list'] = this.accountList!.map((v) => v.toJson()).toList();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    if (accountList != null) {
+      data['account_list'] =accountList!.map((v) => v.toJson()).toList();
     }
-    data['balance'] = this.balance;
-    data['country'] = this.country;
-    data['currency'] = this.currency;
-    data['email'] = this.email;
-    data['fullname'] = this.fullname;
-    data['is_virtual'] = this.isVirtual;
-    data['landing_company_fullname'] = this.landingCompanyFullname;
-    data['landing_company_name'] = this.landingCompanyName;
-    if (this.localCurrencies != null) {
-      data['local_currencies'] = this.localCurrencies!.toJson();
+    data['balance'] =balance;
+    data['country'] =country;
+    data['currency'] =currency;
+    data['email'] =email;
+    data['fullname'] =fullname;
+    data['is_virtual'] =isVirtual;
+    data['landing_company_fullname'] =landingCompanyFullname;
+    data['landing_company_name'] =landingCompanyName;
+    if (localCurrencies != null) {
+      data['local_currencies'] =localCurrencies!.toJson();
     }
-    data['loginid'] = this.loginid;
-    data['preferred_language'] = this.preferredLanguage;
-    data['scopes'] = this.scopes;
-    if (this.trading != null) {
-      data['trading'] = this.trading!.toJson();
+    data['loginid'] =loginid;
+    data['preferred_language'] =preferredLanguage;
+    data['scopes'] =scopes;
+    if (trading != null) {
+      data['trading'] =trading!.toJson();
     }
-    data['upgradeable_landing_companies'] = this.upgradeableLandingCompanies;
-    data['user_id'] = this.userId;
+    data['upgradeable_landing_companies'] =upgradeableLandingCompanies;
+    data['user_id'] =userId;
     return data;
   }
 }
@@ -103,7 +129,14 @@ class AccountList {
   String? loginid;
   Trading? trading;
 
-  AccountList({this.accountType, this.currency, this.isDisabled, this.isVirtual, this.landingCompanyName, this.loginid, this.trading});
+  AccountList(
+      {this.accountType,
+     currency,
+     isDisabled,
+     isVirtual,
+     landingCompanyName,
+     loginid,
+     trading});
 
   AccountList.fromJson(Map<String, dynamic> json) {
     accountType = json['account_type'];
@@ -112,36 +145,34 @@ class AccountList {
     isVirtual = json['is_virtual'];
     landingCompanyName = json['landing_company_name'];
     loginid = json['loginid'];
-    trading = json['trading'] != null ? new Trading.fromJson(json['trading']) : null;
+    trading =
+        json['trading'] != null ? Trading.fromJson(json['trading']) : null;
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['account_type'] = this.accountType;
-    data['currency'] = this.currency;
-    data['is_disabled'] = this.isDisabled;
-    data['is_virtual'] = this.isVirtual;
-    data['landing_company_name'] = this.landingCompanyName;
-    data['loginid'] = this.loginid;
-    if (this.trading != null) {
-      data['trading'] = this.trading!.toJson();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['account_type'] =accountType;
+    data['currency'] =currency;
+    data['is_disabled'] =isDisabled;
+    data['is_virtual'] =isVirtual;
+    data['landing_company_name'] =landingCompanyName;
+    data['loginid'] =loginid;
+    if (trading != null) {
+      data['trading'] =trading!.toJson();
     }
     return data;
   }
 }
 
 class Trading {
-
-
   Trading();
 
-Trading.fromJson(Map<String, dynamic> json) {
-}
+  Trading.fromJson(Map<String, dynamic> json);
 
-Map<String, dynamic> toJson() {
-  final Map<String, dynamic> data = new Map<String, dynamic>();
-  return data;
-}
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = <String, dynamic>{};
+    return data;
+  }
 }
 
 class LocalCurrencies {
@@ -150,13 +181,13 @@ class LocalCurrencies {
   LocalCurrencies({this.iNR});
 
   LocalCurrencies.fromJson(Map<String, dynamic> json) {
-    iNR = json['INR'] != null ? new INR.fromJson(json['INR']) : null;
+    iNR = json['INR'] != null ? INR.fromJson(json['INR']) : null;
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.iNR != null) {
-      data['INR'] = this.iNR!.toJson();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    if (iNR != null) {
+      data['INR'] =iNR!.toJson();
     }
     return data;
   }
@@ -172,8 +203,8 @@ class INR {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['fractional_digits'] = this.fractionalDigits;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['fractional_digits'] =fractionalDigits;
     return data;
   }
 }
@@ -188,8 +219,8 @@ class EchoReq {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['authorize'] = this.authorize;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['authorize'] =authorize;
     return data;
   }
 }

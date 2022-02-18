@@ -1,4 +1,0 @@
-enum AdvertSortType {
-  rate,
-  completion,
-}

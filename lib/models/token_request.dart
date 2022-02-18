@@ -1,19 +1,18 @@
 import 'package:flutter_deriv_api/basic_api/request.dart';
 
-// Authorize request class.
+// Authorize token request class.
 class TokenRequest extends Request {
   /// Initialize AuthorizeRequest.
   const TokenRequest({
     required this.authorize,
     int? reqId,
   }) : super(
-    msgType: 'authorize',
-    reqId: reqId,
-  );
+          msgType: 'authorize',
+          reqId: reqId,
+        );
 
   /// Creates an instance from JSON.
-  factory TokenRequest.fromJson(Map<String, dynamic> json) =>
-      TokenRequest(
+  factory TokenRequest.fromJson(Map<String, dynamic> json) => TokenRequest(
         authorize: json['authorize'] as String?,
         reqId: json['req_id'] as int?,
       );
@@ -23,9 +22,9 @@ class TokenRequest extends Request {
   /// Converts this instance to JSON
   @override
   Map<String, dynamic> toJson() => <String, dynamic>{
-    'authorize': authorize,
-    'req_id': reqId,
-  };
+        'authorize': authorize,
+        'req_id': reqId,
+      };
 
   /// Creates a copy of instance with given parameters
   @override

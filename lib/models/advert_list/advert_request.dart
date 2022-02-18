@@ -19,7 +19,7 @@ class AdvertRequest extends Request {
         counterpartyType: json['counterparty_type'] as String?,
         limit: json['limit'] as int?,
         offset: json['offset'] as int?,
-        p2pAdvertList: json['p2p_advert_list'] ?? null,
+        p2pAdvertList: json['p2p_advert_list'],
         passthrough: json['passthrough'] as Map<String, dynamic>?,
         reqId: json['req_id'] as int?,
         sortBy: json['sort_by'] as String?,

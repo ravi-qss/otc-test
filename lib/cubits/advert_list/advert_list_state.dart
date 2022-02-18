@@ -1,4 +1,3 @@
-
 import 'package:otc_test/models/advert_list/advert_list_response.dart';
 
 abstract class AdvertListState {}
@@ -14,13 +13,13 @@ class AdvertListLoadingState extends AdvertListState {
 }
 
 class AdvertListErrorState extends AdvertListState {
-   final String error;
-   AdvertListErrorState(this.error);
+  final String error;
+
+  AdvertListErrorState(this.error);
 
   @override
   String toString() => 'AdvertListInitialState{}';
 }
-
 
 class AdvertListLoadedState extends AdvertListState {
   final List<AdvertList> list;
@@ -33,4 +32,3 @@ class AdvertListLoadedState extends AdvertListState {
     return 'AdvertListLoadedState{list: $list}';
   }
 }
-

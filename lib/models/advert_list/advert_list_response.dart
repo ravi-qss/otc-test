@@ -1,11 +1,15 @@
 import 'package:flutter_deriv_api/basic_api/response.dart';
 
+/// Advert response class to catch the Advert API result
+// ignore: must_be_immutable
 class AdvertListResponse extends Response {
+  @override
+  // ignore: overridden_fields
   String? msgType;
   P2pAdvertList? p2pAdvertList;
 
   AdvertListResponse({
-    this.p2pAdvertList,
+    p2pAdvertList,
     Map<String, dynamic>? echoReq,
     Map<String, dynamic>? error,
     String? msgType,
@@ -24,12 +28,13 @@ class AdvertListResponse extends Response {
         : null;
   }
 
+  @override
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
+    final Map<String, dynamic> data = <String, dynamic>{};
 
-    data['msg_type'] = this.msgType;
-    if (this.p2pAdvertList != null) {
-      data['p2p_advert_list'] = this.p2pAdvertList!.toJson();
+    data['msg_type'] = msgType;
+    if (p2pAdvertList != null) {
+      data['p2p_advert_list'] = p2pAdvertList!.toJson();
     }
     return data;
   }
@@ -39,7 +44,7 @@ class EchoReq {
   String? counterpartyType;
   int? p2pAdvertList;
 
-  EchoReq({this.counterpartyType, this.p2pAdvertList});
+  EchoReq({counterpartyType, p2pAdvertList});
 
   EchoReq.fromJson(Map<String, dynamic> json) {
     counterpartyType = json['counterparty_type'];
@@ -47,9 +52,9 @@ class EchoReq {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
-    data['counterparty_type'] = this.counterpartyType;
-    data['p2p_advert_list'] = this.p2pAdvertList;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['counterparty_type'] = counterpartyType;
+    data['p2p_advert_list'] = p2pAdvertList;
     return data;
   }
 }
@@ -57,7 +62,7 @@ class EchoReq {
 class P2pAdvertList {
   List<AdvertList>? list;
 
-  P2pAdvertList({this.list});
+  P2pAdvertList({list});
 
   P2pAdvertList.fromJson(Map<String, dynamic> json) {
     if (json['list'] != null) {
@@ -69,9 +74,9 @@ class P2pAdvertList {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
-    if (this.list != null) {
-      data['list'] = this.list!.map((v) => v.toJson()).toList();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    if (list != null) {
+      data['list'] = list!.map((v) => v.toJson()).toList();
     }
     return data;
   }
@@ -100,26 +105,26 @@ class AdvertList {
   String? type;
 
   AdvertList(
-      {this.accountCurrency,
-      this.advertiserDetails,
-      this.counterpartyType,
-      this.country,
-      this.createdTime,
-      this.description,
-      this.id,
-      this.isActive,
-      this.isVisible,
-      this.localCurrency,
-      this.maxOrderAmountLimit,
-      this.maxOrderAmountLimitDisplay,
-      this.minOrderAmountLimit,
-      this.minOrderAmountLimitDisplay,
-      this.paymentMethod,
-      this.price,
-      this.priceDisplay,
-      this.rate,
-      this.rateDisplay,
-      this.type});
+      {accountCurrency,
+      advertiserDetails,
+      counterpartyType,
+      country,
+      createdTime,
+      description,
+      id,
+      isActive,
+      isVisible,
+      localCurrency,
+      maxOrderAmountLimit,
+      maxOrderAmountLimitDisplay,
+      minOrderAmountLimit,
+      minOrderAmountLimitDisplay,
+      paymentMethod,
+      price,
+      priceDisplay,
+      rate,
+      rateDisplay,
+      type});
 
   AdvertList.fromJson(Map<String, dynamic> json) {
     accountCurrency = json['account_currency'];
@@ -149,29 +154,29 @@ class AdvertList {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
-    data['account_currency'] = this.accountCurrency;
-    if (this.advertiserDetails != null) {
-      data['advertiser_details'] = this.advertiserDetails!.toJson();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['account_currency'] = accountCurrency;
+    if (advertiserDetails != null) {
+      data['advertiser_details'] = advertiserDetails!.toJson();
     }
-    data['counterparty_type'] = this.counterpartyType;
-    data['country'] = this.country;
-    data['created_time'] = this.createdTime;
-    data['description'] = this.description;
-    data['id'] = this.id;
-    data['is_active'] = this.isActive;
-    data['is_visible'] = this.isVisible;
-    data['local_currency'] = this.localCurrency;
-    data['max_order_amount_limit'] = this.maxOrderAmountLimit;
-    data['max_order_amount_limit_display'] = this.maxOrderAmountLimitDisplay;
-    data['min_order_amount_limit'] = this.minOrderAmountLimit;
-    data['min_order_amount_limit_display'] = this.minOrderAmountLimitDisplay;
-    data['payment_method'] = this.paymentMethod;
-    data['price'] = this.price;
-    data['price_display'] = this.priceDisplay;
-    data['rate'] = this.rate;
-    data['rate_display'] = this.rateDisplay;
-    data['type'] = this.type;
+    data['counterparty_type'] = counterpartyType;
+    data['country'] = country;
+    data['created_time'] = createdTime;
+    data['description'] = description;
+    data['id'] = id;
+    data['is_active'] = isActive;
+    data['is_visible'] = isVisible;
+    data['local_currency'] = localCurrency;
+    data['max_order_amount_limit'] = maxOrderAmountLimit;
+    data['max_order_amount_limit_display'] = maxOrderAmountLimitDisplay;
+    data['min_order_amount_limit'] = minOrderAmountLimit;
+    data['min_order_amount_limit_display'] = minOrderAmountLimitDisplay;
+    data['payment_method'] = paymentMethod;
+    data['price'] = price;
+    data['price_display'] = priceDisplay;
+    data['rate'] = rate;
+    data['rate_display'] = rateDisplay;
+    data['type'] = type;
     return data;
   }
 }
@@ -185,12 +190,12 @@ class AdvertiserDetails {
   double? totalCompletionRate;
 
   AdvertiserDetails(
-      {this.completedOrdersCount,
-      this.firstName,
-      this.id,
-      this.lastName,
-      this.name,
-      this.totalCompletionRate});
+      {completedOrdersCount,
+      firstName,
+      id,
+      lastName,
+      name,
+      totalCompletionRate});
 
   AdvertiserDetails.fromJson(Map<String, dynamic> json) {
     completedOrdersCount = json['completed_orders_count'];
@@ -198,17 +203,19 @@ class AdvertiserDetails {
     id = json['id'];
     lastName = json['last_name'];
     name = json['name'];
-    totalCompletionRate = json['total_completion_rate']!= null ?json['total_completion_rate'].toDouble() : 0.0;
+    totalCompletionRate = json['total_completion_rate'] != null
+        ? json['total_completion_rate'].toDouble()
+        : 0.0;
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
-    data['completed_orders_count'] = this.completedOrdersCount;
-    data['first_name'] = this.firstName;
-    data['id'] = this.id;
-    data['last_name'] = this.lastName;
-    data['name'] = this.name;
-    data['total_completion_rate'] = this.totalCompletionRate;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['completed_orders_count'] = completedOrdersCount;
+    data['first_name'] = firstName;
+    data['id'] = id;
+    data['last_name'] = lastName;
+    data['name'] = name;
+    data['total_completion_rate'] = totalCompletionRate;
     return data;
   }
 }

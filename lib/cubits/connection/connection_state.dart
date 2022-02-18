@@ -5,14 +5,13 @@ import 'package:flutter_deriv_api/services/connection/api_manager/binary_api.dar
 abstract class ConnectionsState {}
 
 class InitialConnectionState extends ConnectionsState {
-
   @override
   String toString() {
     return 'InitialConnectionState{}';
   }
 }
 
-  class ConnectingState extends ConnectionsState {
+class ConnectingState extends ConnectionsState {
   final BinaryAPI api;
 
   ConnectingState(this.api);
@@ -27,6 +26,7 @@ class ConnectedState extends ConnectionsState {
   final BinaryAPI api;
 
   ConnectedState(this.api);
+
   @override
   String toString() {
     return 'ConnectedState{}';
@@ -34,7 +34,6 @@ class ConnectedState extends ConnectionsState {
 }
 
 class DisConnectedState extends ConnectionsState {
-
   @override
   String toString() {
     return 'DisConnectedState{}';
@@ -42,10 +41,10 @@ class DisConnectedState extends ConnectionsState {
 }
 
 class ConnectionErrorState extends ConnectionsState {
-
   final String error;
 
   ConnectionErrorState(this.error);
+
   @override
   String toString() {
     return 'DisConnectedState{}';
@@ -53,10 +52,8 @@ class ConnectionErrorState extends ConnectionsState {
 }
 
 class ReConnectingState extends ConnectionsState {
-
   @override
   String toString() {
     return 'ReConnectingState{}';
   }
 }
-
