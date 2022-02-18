@@ -1,0 +1,4 @@
+enum AdvertSortType {
+  rate,
+  completion,
+}
